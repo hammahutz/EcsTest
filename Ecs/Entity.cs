@@ -10,23 +10,8 @@ public abstract class Entity
     private readonly Dictionary<Type, IComponent> _components = new();
     public long Id { get; private set; }
 
-    protected Entity(IComponent[] components = null)
-    {
-        Id = _nextId++;
-        if (components != null)
-        {
-            foreach (var component in components)
-            {
-                AddComponent(component);
-            }
-        }
-    }
+    public Entity() => Id = _nextId++;
 
-    private void AddEntityToWorld()
-    {
-        CreateEntity(/)
-    }
-    public abstract IComponent[] CreateEntity();
 
     public override string ToString() => $"Entity(Id: {Id}";
 

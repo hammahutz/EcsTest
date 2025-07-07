@@ -11,9 +11,8 @@ public class World
     private readonly List<IUpdateSystem> _updateSystems = new List<IUpdateSystem>();
     private readonly List<IDrawSystem> _drawSystems = new List<IDrawSystem>();
 
-    public World CreateEntity(IComponent[] components = null)
+    public World CreateEntity(Entity entity)
     {
-        var entity = new Entity(components);
         _entities.Add(entity);
         return this;
     }

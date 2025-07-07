@@ -1,4 +1,5 @@
 ﻿using EcsTest.Core.Components;
+using EcsTest.Core.Entities;
 using EcsTest.Core.Systems;
 using EcsTest.Ecs;
 using Microsoft.Xna.Framework;
@@ -25,9 +26,10 @@ public class Game1 : Game
         base.Initialize();
 
         _world = new World()
-        .AddSystem(new PixelDrawSystem())
-        .AddSystem(new MovementSystem())
-        .CreateEntity([new Position(0, 0), new Velocity(5f, 1f), new Pixel(GraphicsDevice, 10, 10)]);
+            .AddSystem(new PixelDrawSystem())
+            .AddSystem(new MovementSystem())
+            .AddSystem(new InputSystem())
+            .CreateEntity(new PixelEntity(new Pixel(GraphicsDevice, 10, 10), new Position(100f, 100f)));
     }
 
     protected override void LoadContent()
