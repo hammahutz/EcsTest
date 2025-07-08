@@ -7,7 +7,7 @@ namespace EcsTest.Ecs;
 public abstract class Entity
 {
     private static long _nextId = 0;
-    private readonly Dictionary<Type, IComponent> _components = new();
+    private readonly Dictionary<Type, Component> _components = new();
     public long Id { get; private set; }
 
     public Entity() => Id = _nextId++;
@@ -15,7 +15,7 @@ public abstract class Entity
 
     public override string ToString() => $"Entity(Id: {Id}";
 
-    public Entity AddComponent<T>(T component) where T : IComponent
+    public Entity AddComponent<T>(T component) where T : Component
     {
         Type type = component.GetType();
         if (_components.ContainsKey(type))
@@ -26,7 +26,7 @@ public abstract class Entity
         return this;
     }
 
-    public T GetComponent<T>() where T : IComponent
+    public T GetComponent<T>() where T : Component
     {
         if (_components.TryGetValue(typeof(T), out var component))
         {
@@ -42,7 +42,7 @@ public abstract class Entity
         }
         return _components.ContainsKey(component);
     }
-    public void RemoveComponent<T>() where T : IComponent
+    public void RemoveComponent<T>() where T : Component
     {
         if (!_components.Remove(typeof(T)))
         {
@@ -52,10 +52,6 @@ public abstract class Entity
     public void ClearComponents()
     {
         _components.Clear();
-    }
-    public IEnumerable<IComponent> GetAllComponents()
-    {
-        return _components.Values;
     }
 
     public int ComponentCount => _components.Count;

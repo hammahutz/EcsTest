@@ -84,12 +84,12 @@ public class World
         }
     }
 
-    public IEnumerable<Entity> GetEntitiesWith<T1>() where T1 : IComponent => GetEntitiesWith([typeof(T1)]);
-    public IEnumerable<Entity> GetEntitiesWith<T1, T2>() where T1 : IComponent where T2 : IComponent => GetEntitiesWith([typeof(T1), typeof(T2)]);
-    public IEnumerable<Entity> GetEntitiesWith<T1, T2, T3>() where T1 : IComponent where T2 : IComponent where T3 : IComponent => GetEntitiesWith([typeof(T1), typeof(T2), typeof(T3)]);
-    public IEnumerable<Entity> GetEntitiesWith<T1, T2, T3, T4>() where T1 : IComponent where T2 : IComponent where T3 : IComponent where T4 : IComponent => GetEntitiesWith([typeof(T1), typeof(T2), typeof(T3), typeof(T4)]);
-    public IEnumerable<Entity> GetEntitiesWith<T1, T2, T3, T4, T5>() where T1 : IComponent where T2 : IComponent where T3 : IComponent where T4 : IComponent where T5 : IComponent => GetEntitiesWith([typeof(T1), typeof(T2), typeof(T3), typeof(T4), typeof(T5)]);
-    public IEnumerable<Entity> GetEntitiesWith<T1, T2, T3, T4, T5, T6>() where T1 : IComponent where T2 : IComponent where T3 : IComponent where T4 : IComponent where T5 : IComponent where T6 : IComponent => GetEntitiesWith([typeof(T1), typeof(T2), typeof(T3), typeof(T4), typeof(T5), typeof(T6)]);
+    public IEnumerable<Entity> GetEntitiesWith<T1>() where T1 : Component => GetEntitiesWith([typeof(T1)]);
+    public IEnumerable<Entity> GetEntitiesWith<T1, T2>() where T1 : Component where T2 : Component => GetEntitiesWith([typeof(T1), typeof(T2)]);
+    public IEnumerable<Entity> GetEntitiesWith<T1, T2, T3>() where T1 : Component where T2 : Component where T3 : Component => GetEntitiesWith([typeof(T1), typeof(T2), typeof(T3)]);
+    public IEnumerable<Entity> GetEntitiesWith<T1, T2, T3, T4>() where T1 : Component where T2 : Component where T3 : Component where T4 : Component => GetEntitiesWith([typeof(T1), typeof(T2), typeof(T3), typeof(T4)]);
+    public IEnumerable<Entity> GetEntitiesWith<T1, T2, T3, T4, T5>() where T1 : Component where T2 : Component where T3 : Component where T4 : Component where T5 : Component => GetEntitiesWith([typeof(T1), typeof(T2), typeof(T3), typeof(T4), typeof(T5)]);
+    public IEnumerable<Entity> GetEntitiesWith<T1, T2, T3, T4, T5, T6>() where T1 : Component where T2 : Component where T3 : Component where T4 : Component where T5 : Component where T6 : Component => GetEntitiesWith([typeof(T1), typeof(T2), typeof(T3), typeof(T4), typeof(T5), typeof(T6)]);
 
     private IEnumerable<Entity> GetEntitiesWith(Type[] components)
     {

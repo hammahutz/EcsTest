@@ -18,7 +18,7 @@ namespace EcsTest.Core.Systems
                 var pixel = entity.GetComponent<Pixel>();
                 spriteBatch.Draw(
                     texture: pixel.Texture,
-                    position: new Vector2(position.X, position.Y),
+                    position: position.Coordinate,
                     sourceRectangle: null,
                     color: Color.White,
                     rotation: 0f,

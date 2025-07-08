@@ -29,7 +29,7 @@ public class Game1 : Game
             .AddSystem(new PixelDrawSystem())
             .AddSystem(new MovementSystem())
             .AddSystem(new InputSystem())
-            .CreateEntity(new PixelEntity(new Pixel(GraphicsDevice, 10, 10), new Position(100f, 100f)));
+            .CreateEntity(new PixelEntity(new Pixel(GraphicsDevice){Width = 10, Height = 10} ));
     }
 
     protected override void LoadContent()
